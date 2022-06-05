@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const  PORT = 8000
+const PORT = process.env.PORT || 8000;
 
 const books = {
     'book 1': {
@@ -33,6 +33,10 @@ app.get('/api/:name', (require, response) => {
     }
 })
 
-app.listen(process.env.PORT || PORT, () => {
+app.get('/main.js', (require, response) => {
+    response.sendFile(__dirname + '/main.js')
+})
+
+app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}! Better Go Catch it!`)
 })

@@ -20,6 +20,8 @@ const books = {
     }
 }
 
+app.use(express.static('public'))
+
 app.get('/', (require, response) => {
     response.sendFile(__dirname + '/index.html')
 })
@@ -33,8 +35,8 @@ app.get('/api/:name', (require, response) => {
     }
 })
 
-app.get('/main.js', (require, response) => {
-    response.sendFile(__dirname + '/main.js')
+app.get('/js/main.js', (require, response) => {
+    response.sendFile(__dirname + '/js/main.js')
 })
 
 app.listen(PORT, () => {

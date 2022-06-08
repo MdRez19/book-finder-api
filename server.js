@@ -1,6 +1,11 @@
 const express = require('express');
-const app = express();
+const cors = require('cors');
+
+// defining the PORT to listen the server!
 const PORT = process.env.PORT || 8000;
+
+// defining the Express app!
+const app = express();
 
 const books = {
     'book 1': {
@@ -20,6 +25,7 @@ const books = {
     }
 }
 
+app.use(cors());
 app.use(express.static('public'))
 
 app.get('/', (require, response) => {

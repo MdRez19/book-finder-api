@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 8000;
 
 // defining the Express app!
 const app = express();
+app.use(cors());
+app.use(express.static('public'))
 
 const books = {
     'book 1': {
@@ -25,9 +27,6 @@ const books = {
     }
 }
 
-app.use(cors());
-app.use(express.static('public'))
-
 app.get('/', (require, response) => {
     response.sendFile(__dirname + '/index.html')
 })
@@ -41,8 +40,8 @@ app.get('/api/:name', (require, response) => {
     }
 })
 
-app.get('/js/main.js', (require, response) => {
-    response.sendFile(__dirname + '/js/main.js')
+app.get('/public/js/main.js', (require, response) => {
+    response.sendFile(__dirname + '/public/js/main.js')
 })
 
 app.listen(PORT, () => {

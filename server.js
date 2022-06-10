@@ -40,9 +40,9 @@ app.get('/api/:name', (require, response) => {
     }
 })
 
-app.get('/public/js/main.js', (require, response) => {
-    response.sendFile(__dirname + '/public/js/main.js')
-})
+// app.get('/public/js/main.js', (require, response) => {
+//     response.sendFile(__dirname + '/public/js/main.js')
+// })
 
 app.listen(PORT, () => {
     console.log(`The server is running on port ${PORT}! Better Go Catch it!`)
